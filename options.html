@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SiteLauncher — Settings</title>
+  <link rel="icon" href="icons/icon48.png" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <main class="container">
+    <!-- Header -->
+    <header class="header">
+      <img class="logo" src="icons/icon48.png" alt="" width="44" height="44" />
+      <div>
+        <h1>SiteLauncher</h1>
+        <p class="subtitle">
+          One click on the pinned toolbar icon opens every enabled site at once.
+        </p>
+      </div>
+      <span id="count" class="count" title="Enabled sites">0</span>
+    </header>
+
+    <!-- Settings -->
+    <section class="card settings">
+      <h2 class="card-title">Launch behaviour</h2>
+
+      <label class="row switch-row">
+        <span class="row-text">
+          <span class="row-title">Open on browser startup</span>
+          <span class="row-hint">Automatically launch your sites when Chrome/Brave starts.</span>
+        </span>
+        <input type="checkbox" id="openOnStartup" class="switch" />
+      </label>
+
+      <div class="row">
+        <span class="row-text">
+          <span class="row-title">Open in</span>
+          <span class="row-hint">Where the sites should be opened.</span>
+        </span>
+        <div class="segmented" role="radiogroup" aria-label="Open in">
+          <input type="radio" name="windowMode" id="mode-new" value="new" />
+          <label for="mode-new">New window</label>
+          <input type="radio" name="windowMode" id="mode-same" value="same" />
+          <label for="mode-same">Same window</label>
+        </div>
+      </div>
+
+      <label class="row switch-row">
+        <span class="row-text">
+          <span class="row-title">Group tabs together</span>
+          <span class="row-hint">Put all opened tabs into a single tab group.</span>
+        </span>
+        <input type="checkbox" id="groupTabs" class="switch" />
+      </label>
+
+      <label class="row switch-row">
+        <span class="row-text">
+          <span class="row-title">Skip sites already open</span>
+          <span class="row-hint">Don’t reopen a site that is currently in a tab.</span>
+        </span>
+        <input type="checkbox" id="skipOpen" class="switch" />
+      </label>
+    </section>
+
+    <!-- Add site -->
+    <section class="card add">
+      <h2 class="card-title">Add a site</h2>
+      <form id="addForm" class="add-form" autocomplete="off">
+        <input
+          type="text"
+          id="newName"
+          class="input"
+          placeholder="Name (e.g. Gmail)"
+          aria-label="Site name"
+        />
+        <input
+          type="text"
+          id="newUrl"
+          class="input"
+          placeholder="URL (e.g. gmail.com)"
+          aria-label="Site URL"
+        />
+        <button type="submit" class="btn-primary">Add</button>
+      </form>
+      <p id="addError" class="error" hidden></p>
+    </section>
+
+    <!-- Site list -->
+    <section class="sites-section">
+      <div class="list-head">
+        <h2 class="card-title">Your sites</h2>
+        <span id="listSummary" class="muted"></span>
+      </div>
+
+      <div id="empty" class="card empty" hidden>
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l2.2 5.6L20 9l-4.2 3.9L17 19l-5-2.8L7 19l1.2-6.1L4 9l5.8-.4z" />
+          </svg>
+        </div>
+        <p class="empty-title">No sites added yet.</p>
+        <p class="empty-hint">Add your first site above — it only takes a second.</p>
+      </div>
+
+      <ul id="list" class="list" hidden></ul>
+    </section>
+
+    <footer class="footer muted">
+      Press the toolbar icon to launch everything — or add more sites here.
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

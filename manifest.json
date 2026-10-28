@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "SiteLauncher",
+  "version": "1.0.0",
+  "description": "One click on the pinned icon instantly opens all of your everyday sites. No popup, no second click.",
+  "permissions": ["storage", "tabs", "windows"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "SiteLauncher — click to open your sites",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
